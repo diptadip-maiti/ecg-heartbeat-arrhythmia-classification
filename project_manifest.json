@@ -1,0 +1,21 @@
+{
+  "project": "ECG Heartbeat Arrhythmia Classification",
+  "source": "https://www.kaggle.com/competitions/nppe-2-t-2-26-ecg-heartbeat-arrhythmia-classification",
+  "refactor": "portfolio-ready modular PyTorch repository",
+  "input_features": {
+    "ecg_samples": 250,
+    "rr_features": 3
+  },
+  "classes": 4,
+  "model": "1D CNN + RR-feature MLP fusion",
+  "metric": "Macro F1",
+  "training": {
+    "epochs": 40,
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "scheduler": "ReduceLROnPlateau",
+    "early_stopping_patience": 8
+  }
+}
