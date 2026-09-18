@@ -1,0 +1,32 @@
+{
+  "best_validation_macro_f1": 0.862314520318785,
+  "final_validation_loss": 0.19813282664696513,
+  "final_validation_macro_f1": 0.862314520318785,
+  "epochs_completed": 19,
+  "class_f1": {
+    "Normal": 0.9847015970860185,
+    "Supraventricular Ectopic": 0.8879093198992444,
+    "Ventricular Ectopic": 0.9760465636892769,
+    "Fusion": 0.6006006006006006
+  },
+  "validation_prediction_distribution": {
+    "0": 8845,
+    "1": 868,
+    "2": 4423,
+    "3": 214
+  },
+  "config": {
+    "seed": 42,
+    "batch_size": 512,
+    "epochs": 40,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "num_workers": 2,
+    "patience": 8,
+    "scheduler_patience": 2,
+    "grad_clip": 5.0,
+    "num_classes": 4,
+    "use_beat_normalization": true,
+    "device": "cuda"
+  }
+}
