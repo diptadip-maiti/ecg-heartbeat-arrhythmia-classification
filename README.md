@@ -43,8 +43,9 @@ The project classifies each heartbeat into four classes using two complementary 
                       ├──────────────┐
                       │              │
                       │        RR features
-                      │        pre_rr/post_rr
-                      │         rr_ratio
+                      │        pre_rr
+                      │        post_rr
+                      │        rr_ratio
                       │              │
                       │              ▼
                       │         ┌────────┐
@@ -96,6 +97,45 @@ label
 
 The dataset itself is **not included** in this repository.
 
+## Results
+
+| Metric | Validation |
+|---|---:|
+| Macro F1 | 89.0240 |
+| Accuracy | 98.1548 |
+| Best Epoch | 32 |
+
+### Per-class F1
+
+| Class | Description | F1 |
+|---|---|---:|
+| 0 | Normal | 98.99 |
+| 1 | Supraventricular Ectopic | 93.72 |
+| 2 | Ventricular Ectopic | 98.40 |
+| 3 | Fusion | 64.98 |
+
+## Model Performance
+
+### Signal Examples
+
+![Signal Examples](assets/signal_examples.png)
+
+### Training F1
+
+![Training F1](assets/training_f1.png)
+
+### Training Loss
+
+![Training Loss](assets/training_loss.png)
+
+### Confusion Matrix
+
+![Confusion Matrix](assets/confusion_matrix.png)
+
+### Class F1
+
+![Class F1](assets/class_f1.png)
+
 ## Quick start
 
 ### 1. Clone
@@ -115,8 +155,8 @@ pip install -r requirements.txt
 
 ```bash
 python scripts/train.py \
-  --data-dir /path/to/nppe2_dataset \
-  --output-dir outputs
+  --data-dir /kaggle/input/competitions/nppe-2-t-2-26-ecg-heartbeat-arrhythmia-classification/nppe2_dataset \
+  --output-dir /kaggle/working/ecg-heartbeat-arrhythmia-classification/outputs
 ```
 
 The script performs:
@@ -138,38 +178,11 @@ The script performs:
 
 ```bash
 python scripts/predict.py \
-  --data-dir /path/to/nppe2_dataset \
-  --checkpoint outputs/best_model.pt \
-  --output outputs/submission.csv
+  --data-dir /kaggle/input/competitions/nppe-2-t-2-26-ecg-heartbeat-arrhythmia-classification/nppe2_dataset \
+  --checkpoint /kaggle/working/ecg-heartbeat-arrhythmia-classification/outputs/best_model.pt \
+  --output /kaggle/working/ecg-heartbeat-arrhythmia-classification/outputs/submission.csv
 ```
 
-## Kaggle GPU workflow
-
-The repository is designed to run locally or in a Kaggle notebook.
-
-For Kaggle:
-
-```python
-!git clone https://github.com/diptadip-maiti/ecg-heartbeat-arrhythmia-classification.git
-%cd ecg-heartbeat-arrhythmia-classification
-!pip install -q -r requirements.txt
-```
-
-Attach the competition dataset through Kaggle's **Add Input** panel and locate it under `/kaggle/input`.
-
-Then:
-
-```python
-!python scripts/train.py \
-  --data-dir "/kaggle/input/.../nppe2_dataset" \
-  --output-dir outputs
-```
-
-The device is selected automatically:
-
-```python
-torch.device("cuda" if torch.cuda.is_available() else "cpu")
-```
 
 ## Portfolio artifacts
 
