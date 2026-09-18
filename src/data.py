@@ -5,6 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from torch.utils.data import Dataset
 
+from .utils import normalize_each_beat
+
 
 class ECGDataset(Dataset):
     def __init__(self, signals, rr_features, labels=None):

@@ -101,7 +101,7 @@ The dataset itself is **not included** in this repository.
 ### 1. Clone
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone <https://github.com/diptadip-maiti/ecg-heartbeat-arrhythmia-classification>
 cd ecg-arrhythmia-classification
 ```
 
@@ -150,8 +150,8 @@ The repository is designed to run locally or in a Kaggle notebook.
 For Kaggle:
 
 ```python
-!git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-%cd YOUR_REPO
+!git clone https://github.com/diptadip-maiti/ecg-heartbeat-arrhythmia-classification.git
+%cd ecg-heartbeat-arrhythmia-classification
 !pip install -q -r requirements.txt
 ```
 
